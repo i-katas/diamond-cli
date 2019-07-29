@@ -2,21 +2,29 @@
   "name": "diamond",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "bin": "dist/index.js",
   "scripts": {
+    "prepack": "npm run test && npm run lint && ./node_modules/.bin/babel lib --out-dir dist",
+    "preinstall": "npm run prepack",
     "test": "node_modules/jest/bin/jest.js --testPathPattern=/test/",
-    "lint": "node_modules/eslint/bin/eslint.js ."
+    "lint": "node_modules/eslint/bin/eslint.js lib test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "eslint": "^6.1.0",
     "jest": "^24.8.0"
   },
   "dependencies": {},
   "jest": {
-    "moduleDirectories": ["node_modules", "lib"]
+    "moduleDirectories": [
+      "node_modules",
+      "lib"
+    ]
   }
 }
