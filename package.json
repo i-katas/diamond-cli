@@ -17,6 +17,6 @@
   },
   "dependencies": {},
   "jest": {
-    "moduleDirectories": ["node_modules", "src"]
+    "moduleDirectories": ["node_modules", "lib"]
   }
 }
